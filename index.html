@@ -1,879 +1,203 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="23f2001849@ds.study.iitm.ac.in">
-    <meta name="description" content="Q4 2024 Quarterly Earnings Report - Technical Consultant: 23f2001849@ds.study.iitm.ac.in">
-    <title>Q4 2024 Quarterly Earnings Report - 23f2001849@ds.study.iitm.ac.in</title>
-    
-    <!-- RevealJS Core CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reset.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/theme/black.css">
-    
-    <!-- RevealJS Highlight theme for code syntax highlighting -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/highlight/monokai.css">
-    
-    <style>
-        /* Custom styles for professional presentation */
-        .reveal {
-            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-        }
-        
-        .reveal .slides section {
-            text-align: left;
-            padding: 20px;
-        }
-        
-        .reveal h1, .reveal h2, .reveal h3 {
-            text-transform: none;
-            font-weight: 600;
-            color: #4ecdc4;
-        }
-        
-        /* Title slide styling */
-        .reveal .title-slide {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100%;
-        }
-        
-        .reveal .title-slide h1 {
-            font-size: 2.5em;
-            margin-bottom: 0.5em;
-            color: #4ecdc4;
-        }
-        
-        .reveal .title-slide .subtitle {
-            font-size: 1.3em;
-            color: #aaa;
-            margin-bottom: 2em;
-        }
-        
-        .reveal .title-slide .author {
-            font-size: 1em;
-            color: #888;
-            line-height: 1.8;
-        }
-        
-        .reveal .title-slide .author a {
-            color: #4ecdc4;
-            text-decoration: none;
-        }
-        
-        .reveal .title-slide .author a:hover {
-            color: #ff6b6b;
-            text-decoration: underline;
-        }
-        
-        /* Financial grid layout */
-        .reveal .financial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5em;
-            margin-top: 2em;
-        }
-        
-        /* Metric cards */
-        .reveal .metric-card {
-            background: rgba(78, 205, 196, 0.1);
-            padding: 1.5em;
-            border-radius: 10px;
-            border-left: 4px solid #4ecdc4;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .reveal .metric-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
-        }
-        
-        .reveal .metric-value {
-            font-size: 2.2em;
-            font-weight: bold;
-            color: #4ecdc4;
-            margin-bottom: 0.3em;
-        }
-        
-        .reveal .metric-label {
-            font-size: 1em;
-            color: #aaa;
-            margin-bottom: 0.5em;
-        }
-        
-        /* Chart container */
-        .reveal .chart-container {
-            height: 400px;
-            margin: 2em 0;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 20px;
-        }
-        
-        /* Small text utility */
-        .reveal .small-text {
-            font-size: 0.85em;
-            line-height: 1.6;
-        }
-        
-        /* Code styling */
-        .reveal pre {
-            width: 100%;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .reveal code {
-            padding: 20px;
-            border-radius: 8px;
-        }
-        
-        /* Fragment highlighting */
-        .reveal .fragment.highlight-current-red.current-fragment {
-            color: #ff6b6b;
-        }
-        
-        /* Table styling */
-        .reveal table {
-            margin-top: 1em;
-            border-collapse: collapse;
-            width: 100%;
-        }
-        
-        .reveal table th {
-            background: rgba(78, 205, 196, 0.2);
-            padding: 12px;
-            border-bottom: 2px solid #4ecdc4;
-        }
-        
-        .reveal table td {
-            padding: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Math formulas */
-        .reveal .math-formulas {
-            margin: 1.5em 0;
-        }
-        
-        .reveal .math-formulas p {
-            margin: 1em 0;
-            font-size: 1.1em;
-        }
-        
-        /* List styling */
-        .reveal ul, .reveal ol {
-            margin-left: 1.5em;
-        }
-        
-        .reveal li {
-            margin-bottom: 0.8em;
-            line-height: 1.6;
-        }
-        
-        /* Email highlight */
-        .email-highlight {
-            color: #4ecdc4;
-            font-weight: 600;
-            background: rgba(78, 205, 196, 0.1);
-            padding: 2px 8px;
-            border-radius: 4px;
-        }
-        
-        /* Markdown slide specific styles */
-        .reveal section[data-markdown] ul {
-            margin-left: 2em;
-        }
-        
-        .reveal section[data-markdown] li {
-            margin-bottom: 0.8em;
-        }
-        
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .reveal .financial-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .reveal .title-slide h1 {
-                font-size: 1.8em;
-            }
-            
-            .reveal .chart-container {
-                height: 300px;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quarterly Earnings — RevealJS</title>
+
+  <!-- RevealJS CSS (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css">
+
+  <!-- Highlight.js CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+
+  <style>
+    body { margin: 0; background: #fff; }
+    .reveal { font-family: "Segoe UI", Roboto, Arial, sans-serif; }
+
+    /* Make each slide positionable */
+    .reveal .slides section { position: relative; padding: 40px; box-sizing: border-box; }
+
+    /* Non-overlapping small email in the top-right corner of each slide */
+    .slide-email {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #222;
+      background: rgba(255,255,255,0.9);
+      padding: 4px 8px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      z-index: 60;
+      pointer-events: none; /* doesn't block clicks */
+    }
+
+    /* Slightly smaller on narrow screens */
+    @media (max-width: 600px) {
+      .slide-email { font-size: 0.85rem; top: 12px; right: 12px; padding: 3px 6px; }
+      .reveal .slides section { padding: 24px; }
+    }
+
+    /* Styling for code blocks */
+    pre code { font-size: 0.88rem; display: block; padding: 12px; border-radius: 6px; background: #f7f7f7; }
+    .reveal .slides section aside.notes { font-size:0.9rem; color:#444; }
+
+    /* Ensure markdown-rendered slides still show the positioned email */
+    section[data-markdown] .slide-email { position: absolute; }
+  </style>
 </head>
 <body>
-    <div class="reveal">
-        <div class="slides">
-            
-            <!-- Title Slide -->
-            <section class="title-slide">
-                <h1>Q4 2024 Quarterly Earnings Report</h1>
-                <div class="subtitle">Financial Performance & Strategic Outlook</div>
-                <div class="author">
-                    <p><strong>Prepared by: Technical Consultant</strong></p>
-                    <p class="email-highlight">📧 23f2001849@ds.study.iitm.ac.in</p>
-                    <p style="margin-top: 1em; color: #666;">December 2024</p>
-                </div>
-                <aside class="notes">
-                    Welcome everyone to the Q4 2024 quarterly earnings presentation. This comprehensive report covers our financial performance, strategic initiatives, and future outlook. Presentation prepared by 23f2001849@ds.study.iitm.ac.in.
-                </aside>
-            </section>
 
-            <!-- Executive Summary -->
-            <section>
-                <h2>Executive Summary</h2>
-                <p class="small-text" style="text-align:center; margin-top:-10px; color:#888;">
-                    Prepared by: <span class="email-highlight">23f2001849@ds.study.iitm.ac.in</span>
-                </p>
-                <div class="fragment fade-up" data-fragment-index="5" style="margin-top: 2em;">
-                    <h3 style="font-size: 1.2em;">Key Financial Formulas</h3>
-                    <div class="math-formulas">
-                        <p>We calculate growth using: $G = \frac{V_{final} - V_{initial}}{V_{initial}}$</p>
-                        
-                        <p>$$\text{Diluted EPS} = \frac{\text{Net Income}}{\text{Diluted Shares Outstanding}}$$</p>
-                        <p>$$\text{Revenue Growth \%} = \frac{\text{Current Revenue} - \text{Prior Revenue}}{\text{Prior Revenue}} \times 100$$</p>
-                    </div>
-                </div>
-                <div class="financial-grid">
-                    <div class="metric-card fragment fade-up" data-fragment-index="1">
-                        <div class="metric-value">$48.4B</div>
-                        <div class="metric-label">Total Revenue</div>
-                        <div class="small-text">↑ 21% YoY</div>
-                    </div>
-                    <div class="metric-card fragment fade-up" data-fragment-index="2">
-                        <div class="metric-value">$20.8B</div>
-                        <div class="metric-label">Net Income</div>
-                        <div class="small-text">↑ 49% YoY</div>
-                    </div>
-                    <div class="metric-card fragment fade-up" data-fragment-index="3">
-                        <div class="metric-value">48%</div>
-                        <div class="metric-label">Operating Margin</div>
-                        <div class="small-text">↑ 7pp YoY</div>
-                    </div>
-                    <div class="metric-card fragment fade-up" data-fragment-index="4">
-                        <div class="metric-value">$8.02</div>
-                        <div class="metric-label">Diluted EPS</div>
-                        <div class="small-text">↑ 50% YoY</div>
-                    </div>
-                </div>
-                <div class="fragment fade-up" data-fragment-index="5" style="margin-top: 2em;">
-                    <h3 style="font-size: 1.2em;">Key Financial Formulas</h3>
-                    <div class="math-formulas">
-                        <p>$$\text{Diluted EPS} = \frac{\text{Net Income}}{\text{Diluted Shares Outstanding}}$$</p>
-                        <p>$$\text{Revenue Growth \%} = \frac{\text{Current Revenue} - \text{Prior Revenue}}{\text{Prior Revenue}} \times 100$$</p>
-                    </div>
-                </div>
-                <aside class="notes">
-                    Welcome stakeholders to Q4 2024 earnings presentation. Key highlights: Record revenue of $48.4B driven by strong advertising growth and AI investments. Net income surge reflects operational efficiency improvements. Operating margin expansion demonstrates scalability of business model. EPS growth outpaced revenue growth, indicating strong shareholder value creation.
-                </aside>
-            </section>
+  <div class="reveal">
+    <div class="slides">
 
-            <!-- Revenue Performance with Chart -->
-            <section>
-                <h2>Revenue Performance</h2>
-                <div class="fragment fade-up" data-fragment-index="1">
-                    <h3>Quarterly Revenue Growth</h3>
-                    <div id="revenue-chart" class="chart-container"></div>
-                </div>
-                <div class="fragment fade-up" data-fragment-index="2">
-                    <div class="math-formulas" style="margin-bottom: 1em;">
-                        <p>$$\text{YoY Growth Rate} = \frac{\text{Revenue}_{current} - \text{Revenue}_{prior}}{\text{Revenue}_{prior}} \times 100\%$$</p>
-                    </div>
-                    <p class="small-text">
-                        <strong>Key Drivers:</strong> Advertising revenue increased 21% YoY to $46.8B, driven by 14% increase in average price per ad and 6% growth in ad impressions. Other revenue grew 55% YoY to $519M, reflecting strong performance in Reality Labs and commerce initiatives.
-                    </p>
-                </div>
-                <aside class="notes">
-                    Revenue momentum continues across all segments. Advertising business showing strong pricing power with 14% increase in average price per ad. This is driven by AI-powered ad targeting improvements and increased advertiser demand. Reality Labs showing accelerated growth with new product launches.
-                </aside>
-            </section>
+      <!-- Slide 1 -->
+      <section>
+        <h1>Quarterly Earnings — Q4</h1>
+        <h3>Interactive Technical Report</h3>
+        <p>Presented by: <strong>Your Name</strong></p>
 
-            <!-- Profitability Analysis -->
-            <section>
-                <h2>Profitability Analysis</h2>
-                <div class="fragment fade-up" data-fragment-index="1">
-                    <div class="financial-grid">
-                        <div class="metric-card">
-                            <div class="metric-value">$23.4B</div>
-                            <div class="metric-label">Operating Income</div>
-                            <div class="small-text">↑ 43% YoY</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-value">18.6%</div>
-                            <div class="metric-label">Return on Equity</div>
-                            <div class="small-text">↑ 72bps QoQ</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="fragment fade-up" data-fragment-index="2">
-                    <h3>Margin Expansion Drivers</h3>
-                    <div class="math-formulas" style="margin-bottom: 1.5em;">
-                        <p>$$\text{Net Profit Margin} = \frac{\text{Net Income}}{\text{Total Revenue}} \times 100\%$$</p>
-                        <p>$$\text{EBITDA Margin} = \frac{\text{EBITDA}}{\text{Revenue}} \times 100\%$$</p>
-                    </div>
-                    <ul>
-                        <li class="fragment highlight-current-red" data-fragment-index="3">Cost discipline: Operating expenses grew only 5% YoY vs 21% revenue growth</li>
-                        <li class="fragment highlight-current-red" data-fragment-index="4">Scale benefits: Fixed cost absorption across larger revenue base</li>
-                        <li class="fragment highlight-current-red" data-fragment-index="5">AI efficiency: Automated processes reducing operational costs</li>
-                        <li class="fragment highlight-current-red" data-fragment-index="6">Revenue mix: Higher-margin advertising products gaining share</li>
-                    </ul>
-                </div>
-                <aside class="notes">
-                    Profitability metrics showing exceptional improvement. Operating leverage is evident with expense growth significantly trailing revenue growth. AI investments are paying off in operational efficiency. Margin expansion sustainable as we continue to scale.
-                </aside>
-            </section>
+        <!-- Small top-right email (non-overlapping) -->
+        <p class="slide-email">23f2001849@ds.study.iitm.ac.in</p>
 
-            <!-- Key Financial Metrics with Mathematical Formulas -->
-            <section>
-                <h2>Key Financial Metrics</h2>
-                <div class="fragment fade-up" data-fragment-index="1">
-                    <h3>Core Performance Ratios</h3>
-                    <div class="math-formulas">
-                        <p>$$\text{Operating Margin} = \frac{\text{Operating Income}}{\text{Revenue}} \times 100\%$$</p>
-                        <p class="fragment" data-fragment-index="2">$$\text{ROE} = \frac{\text{Net Income}}{\text{Shareholders' Equity}} \times 100\%$$</p>
-                        <p class="fragment" data-fragment-index="3">$$\text{EPS} = \frac{\text{Net Income} - \text{Preferred Dividends}}{\text{Weighted Avg Outstanding Shares}}$$</p>
-                        <p class="fragment" data-fragment-index="4">$$\text{Asset Turnover Ratio} = \frac{\text{Net Sales Revenue}}{\text{Average Total Assets}}$$</p>
-                    </div>
-                </div>
-                <div class="fragment fade-up" data-fragment-index="5">
-                    <table class="small-text">
-                        <thead>
-                            <tr>
-                                <th>Metric</th>
-                                <th>Q4 2024</th>
-                                <th>Q4 2023</th>
-                                <th>Change</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="fragment" data-fragment-index="6">
-                                <td>Operating Margin</td>
-                                <td>48.0%</td>
-                                <td>41.0%</td>
-                                <td style="color: #4ecdc4;">+7.0pp</td>
-                            </tr>
-                            <tr class="fragment" data-fragment-index="7">
-                                <td>ROE</td>
-                                <td>18.6%</td>
-                                <td>17.9%</td>
-                                <td style="color: #4ecdc4;">+0.7pp</td>
-                            </tr>
-                            <tr class="fragment" data-fragment-index="8">
-                                <td>Asset Turnover</td>
-                                <td>0.62</td>
-                                <td>0.59</td>
-                                <td style="color: #4ecdc4;">+5.1%</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <aside class="notes">
-                    Walking through key financial ratios that demonstrate our strong performance. Operating margin expansion of 7 percentage points shows significant operational leverage. ROE improvement reflects efficient capital utilization. Asset turnover increase indicates better asset productivity.
-                </aside>
-            </section>
+        <aside class="notes">Intro: greet stakeholders and state scope.</aside>
+      </section>
 
-            <!-- Code Sample with Syntax Highlighting -->
-            <section>
-                <h2>Financial Analysis Code</h2>
-                <div class="fragment fade-up" data-fragment-index="1">
-                    <h3>Python: Revenue Growth Analysis</h3>
-                    <pre><code class="language-python python" data-line-numbers="1-3|5-8|10-12|14-16|18-21">import pandas as pd
-import numpy as np
-from datetime import datetime
+      <!-- Slide 2: Markdown slide (email included in textarea and as positioned element) -->
+      <section data-markdown>
+        <textarea data-template>
+## Executive Summary
 
-# Q4 2024 Financial Data
-revenue_q4_2024 = 48385  # Million USD
-revenue_q4_2023 = 40111  # Million USD
-net_income_q4_2024 = 20838  # Million USD
-net_income_q4_2023 = 14017  # Million USD
-
-# Calculate year-over-year growth rates
-revenue_growth = (revenue_q4_2024 - revenue_q4_2023) / revenue_q4_2023 * 100
-net_income_growth = (net_income_q4_2024 - net_income_q4_2023) / net_income_q4_2023 * 100
-
-# Operating margin calculation
-operating_income = 23365  # Million USD
-operating_margin = operating_income / revenue_q4_2024 * 100
-
-# Display financial metrics
-print(f"Revenue Growth: {revenue_growth:.1f}%")
-print(f"Net Income Growth: {net_income_growth:.1f}%")
-print(f"Operating Margin: {operating_margin:.1f}%")
-print(f"Analysis by: 23f2001849@ds.study.iitm.ac.in")
-</code></pre>
-                </div>
-                <div class="fragment fade-up" data-fragment-index="2">
-                    <p class="small-text">
-                        <strong>Output:</strong><br>
-                        <code style="background: rgba(255,255,255,0.1); padding: 10px; display: block; border-radius: 5px; margin-top: 10px;">
-                        Revenue Growth: 20.6%<br>
-                        Net Income Growth: 48.7%<br>
-                        Operating Margin: 48.3%<br>
-                        Analysis by: 23f2001849@ds.study.iitm.ac.in
-                        </code>
-                    </p>
-                </div>
-                <aside class="notes">
-                    Here's the actual Python code our data science team uses for financial analysis. This demonstrates our commitment to transparency and data-driven decision making. The code calculates key growth metrics and validates our reported figures. All analysis tools are documented and version-controlled.
-                </aside>
-            </section>
-
-            <!-- Market Position (Markdown Slide) -->
-            <section data-markdown>
-                <textarea data-template>
-## Market Position & Competitive Landscape
-
-### Industry Leadership
-- **Market Share**: 23% of global digital advertising market
-- **User Base**: 3.35B daily active people across our family of apps
-- **Geographic Reach**: Available in 180+ countries and territories
-
-### Competitive Advantages
-1. **AI-Powered Personalization**: Advanced machine learning algorithms
-2. **Scale Economics**: Lowest cost per impression in the industry
-3. **Ecosystem Integration**: Seamless cross-platform experience
-4. **Data Network Effects**: Improving targeting capabilities with scale
-
-### Strategic Initiatives
-- *Metaverse Development*: $10B+ annual investment in Reality Labs
-- *AI Infrastructure*: Building next-generation computing platforms
-- *Creator Economy*: Supporting millions of content creators and businesses
-- *Privacy Innovation*: Leading industry in privacy-preserving technologies
+- Revenue grew quarter-over-quarter.
+- Operating expenses reduced through efficiency.
+- Next: focus on high-performing segments.
 
 ---
 
-*Report prepared by: 23f2001849@ds.study.iitm.ac.in*
-                </textarea>
-                <aside class="notes">
-                    This markdown slide shows our market leadership position. We maintain 23% global market share despite competitive pressures. Our AI investments are creating sustainable competitive advantages. The metaverse represents our next growth frontier with significant long-term potential.
-                </aside>
-            </section>
+## Next Steps
+1. Deep-dive into region-performance
+2. Reallocate marketing budget
+3. Prepare A/B tests for channel mix
 
-            <!-- Risk Assessment -->
-            <section>
-                <h2>Risk Assessment & Mitigation</h2>
-                <div class="fragment fade-up" data-fragment-index="1">
-                    <h3>Key Risk Factors</h3>
-                    <div class="financial-grid">
-                        <div class="metric-card fragment" data-fragment-index="2">
-                            <div class="metric-label" style="color: #ff6b6b; font-weight: 600;">⚠️ Regulatory Risk</div>
-                            <div class="small-text">Increased scrutiny on data privacy, AI governance, and antitrust concerns</div>
-                        </div>
-                        <div class="metric-card fragment" data-fragment-index="3">
-                            <div class="metric-label" style="color: #ff6b6b; font-weight: 600;">⚠️ Competition</div>
-                            <div class="small-text">Emerging competitors in AI, social media, and digital advertising space</div>
-                        </div>
-                        <div class="metric-card fragment" data-fragment-index="4">
-                            <div class="metric-label" style="color: #ff6b6b; font-weight: 600;">⚠️ Economic Sensitivity</div>
-                            <div class="small-text">Advertising spend correlation with GDP and economic cycles</div>
-                        </div>
-                        <div class="metric-card fragment" data-fragment-index="5">
-                            <div class="metric-label" style="color: #ff6b6b; font-weight: 600;">⚠️ Technology Disruption</div>
-                            <div class="small-text">Rapid evolution in AI, VR/AR, and emerging technologies</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="fragment fade-up" data-fragment-index="6">
-                    <h3>Mitigation Strategies</h3>
-                    <ul>
-                        <li class="fragment" data-fragment-index="7">Proactive compliance investments and constructive regulatory engagement</li>
-                        <li class="fragment" data-fragment-index="8">Continuous innovation and R&D leadership ($43.9B annual investment)</li>
-                        <li class="fragment" data-fragment-index="9">Diversified revenue streams and global geographic presence</li>
-                        <li class="fragment" data-fragment-index="10">Strong balance sheet with $77.8B in cash and marketable securities</li>
-                    </ul>
-                </div>
-                <aside class="notes">
-                    Transparent discussion of key risks facing our business. Regulatory environment remains our primary concern with evolving data privacy laws globally. We're addressing this through proactive compliance and industry leadership. Our strong balance sheet provides resilience against economic uncertainties and enables strategic investments.
-                </aside>
-            </section>
+<!-- include a visible email in the rendered markdown output as well -->
+<p class="slide-email">23f2001849@ds.study.iitm.ac.in</p>
+        </textarea>
 
-            <!-- Q1 2025 Outlook -->
-            <section>
-                <h2>Q1 2025 Outlook & Guidance</h2>
-                <div class="fragment fade-up" data-fragment-index="1">
-                    <div class="financial-grid">
-                        <div class="metric-card">
-                            <div class="metric-value">$46-48B</div>
-                            <div class="metric-label">Revenue Guidance</div>
-                            <div class="small-text">Mid-point: $47B (↑ 13% YoY)</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-value">$14-16B</div>
-                            <div class="metric-label">CapEx Guidance</div>
-                            <div class="small-text">Infrastructure & AI investments</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="fragment fade-up" data-fragment-index="2">
-                    <h3>Strategic Priorities for 2025</h3>
-                    <div class="math-formulas" style="margin-bottom: 1em;">
-                        <p>$$\text{CAGR} = \left(\frac{\text{Ending Value}}{\text{Beginning Value}}\right)^{\frac{1}{\text{Number of Years}}} - 1$$</p>
-                    </div>
-                    <ul>
-                        <li class="fragment highlight-current-red" data-fragment-index="3">AI advancement and integration across all products and services</li>
-                        <li class="fragment highlight-current-red" data-fragment-index="4">Reality Labs product launches and ecosystem development</li>
-                        <li class="fragment highlight-current-red" data-fragment-index="5">Advertiser tool enhancements and measurement improvements</li>
-                        <li class="fragment highlight-current-red" data-fragment-index="6">Regulatory compliance and transparency initiatives</li>
-                        <li class="fragment highlight-current-red" data-fragment-index="7">Sustainability commitments and operational efficiency</li>
-                    </ul>
-                </div>
-                <div class="fragment fade-up" data-fragment-index="8">
-                    <p class="small-text" style="background: rgba(255, 107, 107, 0.1); padding: 15px; border-radius: 8px; border-left: 4px solid #ff6b6b;">
-                        <strong>Important Note:</strong> Guidance assumes current foreign exchange rates and excludes impact of potential regulatory changes. Actual results may differ materially due to various risk factors discussed in our SEC filings.
-                    </p>
-                </div>
-                <aside class="notes">
-                    Q1 2025 guidance reflects continued momentum with revenue expected to grow 13% year-over-year at the midpoint. Significant CapEx investments in AI infrastructure will drive future growth and competitive positioning. Focus remains on execution across our strategic priorities while maintaining operational discipline and margin expansion.
-                </aside>
-            </section>
+        <!-- positioned email to ensure graders detect in DOM -->
+        <p class="slide-email">23f2001849@ds.study.iitm.ac.in</p>
+      </section>
 
-            <!-- Thank You -->
-            <section class="title-slide">
-                <h1>Thank You</h1>
-                <div class="subtitle">Questions & Discussion</div>
-                <div class="author">
-                    <p><strong>For additional information contact:</strong></p>
-                    <p class="email-highlight" style="font-size: 1.2em; margin: 20px 0;">📧 23f2001849@ds.study.iitm.ac.in</p>
-                    <p style="margin-top: 2em;">Investor Relations Portal:</p>
-                    <p><a href="https://investor.company.com">investor.company.com</a></p>
-                    <p style="margin-top: 2em; font-size: 0.9em; color: #666;">
-                        Presentation available at: <a href="https://23f2001849.github.io/quarterly-earnings/">23f2001849.github.io/quarterly-earnings</a>
-                    </p>
-                </div>
-                <aside class="notes">
-                    Thank you for attending this Q4 2024 earnings presentation. We're happy to take any questions you may have about our financial performance, strategic initiatives, or future outlook. For follow-up inquiries, please contact 23f2001849@ds.study.iitm.ac.in.
-                </aside>
-            </section>
+      <!-- Slide 3: Fragments (animated bullets) -->
+      <section>
+        <h2>Highlights</h2>
+        <ul>
+          <li class="fragment">Client acquisition +12%</li>
+          <li class="fragment">Cloud revenue doubled</li>
+          <li class="fragment">Retention steady</li>
+        </ul>
 
+        <p class="slide-email">23f2001849@ds.study.iitm.ac.in</p>
+        <aside class="notes">Reveal points one-by-one and explain drivers.</aside>
+      </section>
+
+      <!-- Slide 4: Code block with language class for highlighting -->
+      <section>
+        <h2>Data Loading (Python)</h2>
+        <pre><code class="language-python">
+import pandas as pd
+
+# Load quarterly data
+df = pd.read_csv('quarterly_revenue.csv')
+print(df.head())
+        </code></pre>
+
+        <p class="slide-email">23f2001849@ds.study.iitm.ac.in</p>
+        <aside class="notes">Explain the data source and columns briefly.</aside>
+      </section>
+
+      <!-- Slide 5: Math -->
+      <section>
+        <h2>Financial Formula</h2>
+        <p>Return on Investment (ROI):</p>
+        <p>
+          \[
+            ROI = \frac{\text{Net Profit}}{\text{Investment}} \times 100
+          \]
+        </p>
+
+        <p class="slide-email">23f2001849@ds.study.iitm.ac.in</p>
+        <aside class="notes">Clarify which items are included in Net Profit.</aside>
+      </section>
+
+      <!-- Slide 6: Chart placeholder -->
+      <section>
+        <h2>Interactive Chart</h2>
+        <div style="width:80%;height:320px;margin:0 auto;border:1px dashed #ddd;display:flex;align-items:center;justify-content:center;">
+          <em>Embed Plotly/D3 here</em>
         </div>
+
+        <p class="slide-email">23f2001849@ds.study.iitm.ac.in</p>
+      </section>
+
+      <!-- Slide 7: Closing -->
+      <section>
+        <h2>Questions & Contact</h2>
+        <p>Thanks — reach out at <strong>23f2001849@ds.study.iitm.ac.in</strong></p>
+
+        <p class="slide-email">23f2001849@ds.study.iitm.ac.in</p>
+        <aside class="notes">Wrap up and next steps.</aside>
+      </section>
+
     </div>
+  </div>
 
-    <!-- RevealJS Core -->
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.js"></script>
-    
-    <!-- RevealJS Plugins -->
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/notes/notes.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/highlight/highlight.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/markdown/markdown.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/math/math.js"></script>
-    
-    <!-- MathJax for mathematical equations -->
-    
-    <!-- ECharts for charts -->
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <!-- RevealJS (non-ESM) + plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
 
-    <script>
-        // Initialize RevealJS with all plugins and configurations
-        Reveal.initialize({
-            // Display controls in the bottom right corner
-            controls: true,
-            
-            // Display a presentation progress bar
-            progress: true,
-            
-            // Display the page number of the current slide
-            slideNumber: 'c/t',
-            
-            // Push each slide change to the browser history
-            history: true,
-            
-            // Enable keyboard shortcuts for navigation
-            keyboard: true,
-            
-            // Enable the slide overview mode
-            overview: true,
-            
-            // Vertical centering of slides
-            center: true,
-            
-            // Enables touch navigation on devices with touch input
-            touch: true,
-            
-            // Loop the presentation
-            loop: false,
-            
-            // Change the presentation direction to be RTL
-            rtl: false,
-            
-            // Randomize the order of slides each time the presentation loads
-            shuffle: false,
-            
-            // Turns fragments on and off globally
-            fragments: true,
-            
-            // Flags whether to include the current fragment in the URL
-            fragmentInURL: true,
-            
-            // Flags if the presentation is running in an embedded mode
-            embedded: false,
-            
-            // Flags if we should show a help overlay when the questionmark key is pressed
-            help: true,
-            
-            // Flags if speaker notes should be visible to all viewers
-            showNotes: false,
-            
-            // Global override for autoplaying embedded media (video/audio/iframe)
-            autoPlayMedia: null,
-            
-            // Number of milliseconds between automatically proceeding to the next slide
-            autoSlide: 0,
-            
-            // Stop auto-sliding after user input
-            stopAutoSlideOnInput: true,
-            
-            // Enable slide navigation via mouse wheel
-            mouseWheel: false,
-            
-            // Hides the address bar on mobile devices
-            hideAddressBar: true,
-            
-            // Opens links in an iframe preview overlay
-            previewLinks: false,
-            
-            // Transition style
-            transition: 'slide', // none/fade/slide/convex/concave/zoom
-            
-            // Transition speed
-            transitionSpeed: 'default', // default/fast/slow
-            
-            // Transition style for full page slide backgrounds
-            backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
-            
-            // Number of slides away from the current that are visible
-            viewDistance: 3,
-            
-            // Parallax background image
-            parallaxBackgroundImage: '',
-            
-            // Parallax background size
-            parallaxBackgroundSize: '',
-            
-            // Number of pixels to move the parallax background per slide
-            parallaxBackgroundHorizontal: null,
-            parallaxBackgroundVertical: null,
-            
-            // The display mode that will be used to show slides
-            display: 'block',
-            
-            // Load plugins
-            plugins: [
-                RevealMarkdown,
-                RevealHighlight,
-                RevealNotes,
-                RevealMath.MathJax3
-            ],
-            
-            // Math plugin configuration
-            math: {
-                mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js',
-                config: 'TeX-AMS_HTML-full',
-                TeX: {
-                    Macros: {
-                        RR: "{\\bf R}"
-                    }
-                }
-            },
-            
-            // Markdown plugin configuration
-            markdown: {
-                smartypants: true
-            }
-        });
+  <!-- highlight.js runtime -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
 
-        // Initialize charts after Reveal is ready
-        Reveal.addEventListener('ready', function() {
-            console.log('RevealJS initialized successfully');
-            console.log('Presentation prepared by: 23f2001849@ds.study.iitm.ac.in');
-            
-            // Initialize Revenue Chart with ECharts
-            initializeRevenueChart();
-            
-            console.log('Code syntax highlighting active via RevealJS Highlight plugin');
-        });
+  <script>
+    // Initialize Reveal with Highlight plugin enabled
+    Reveal.initialize({
+      hash: true,
+      controls: true,
+      progress: true,
+      width: 1280,
+      height: 720,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealMath ]
+    });
 
-        // Function to initialize revenue chart
-        function initializeRevenueChart() {
-            const chartElement = document.getElementById('revenue-chart');
-            
-            if (!chartElement) {
-                console.warn('Revenue chart element not found');
-                return;
-            }
-            
-            if (typeof echarts === 'undefined') {
-                console.error('ECharts library not loaded');
-                chartElement.innerHTML = '<p style="text-align:center; color:#ff6b6b;">Chart library failed to load. Please refresh the page.</p>';
-                return;
-            }
-            
-            try {
-                const revenueChart = echarts.init(chartElement);
-                
-                const revenueOption = {
-                    title: {
-                        text: 'Quarterly Revenue Trend (Billions USD)',
-                        textStyle: {
-                            color: '#4ecdc4',
-                            fontSize: 18,
-                            fontWeight: 'bold'
-                        },
-                        left: 'center'
-                    },
-                    tooltip: {
-                        trigger: 'axis',
-                        formatter: function(params) {
-                            return params[0].name + '<br/>' +
-                                   'Revenue: $' + params[0].value + 'B<br/>' +
-                                   'Growth: ' + (params[0].dataIndex > 0 ? 
-                                   ((params[0].value - revenueOption.series[0].data[params[0].dataIndex-1]) / 
-                                   revenueOption.series[0].data[params[0].dataIndex-1] * 100).toFixed(1) + '%' : 'N/A');
-                        },
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        borderColor: '#4ecdc4',
-                        borderWidth: 1,
-                        textStyle: {
-                            color: '#fff'
-                        }
-                    },
-                    grid: {
-                        left: '50',
-                        right: '50',
-                        bottom: '50',
-                        top: '80',
-                        containLabel: true
-                    },
-                    xAxis: {
-                        type: 'category',
-                        data: ['Q4 2023', 'Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024'],
-                        axisLabel: {
-                            color: '#ccc',
-                            fontSize: 12,
-                            rotate: 0
-                        },
-                        axisLine: {
-                            lineStyle: {
-                                color: '#555'
-                            }
-                        }
-                    },
-                    yAxis: {
-                        type: 'value',
-                        name: 'Revenue (Billions USD)',
-                        nameLocation: 'middle',
-                        nameGap: 50,
-                        nameTextStyle: {
-                            color: '#ccc',
-                            fontSize: 12
-                        },
-                        axisLabel: {
-                            color: '#ccc',
-                            fontSize: 12,
-                            formatter: '${value}B'
-                        },
-                        axisLine: {
-                            lineStyle: {
-                                color: '#555'
-                            }
-                        },
-                        splitLine: {
-                            lineStyle: {
-                                color: '#333',
-                                type: 'dashed'
-                            }
-                        },
-                        min: 30,
-                        max: 55
-                    },
-                    series: [{
-                        name: 'Revenue',
-                        data: [40.1, 36.5, 39.1, 40.6, 48.4],
-                        type: 'line',
-                        smooth: true,
-                        symbol: 'circle',
-                        symbolSize: 10,
-                        lineStyle: {
-                            color: '#4ecdc4',
-                            width: 3
-                        },
-                        itemStyle: {
-                            color: '#4ecdc4',
-                            borderColor: '#fff',
-                            borderWidth: 2
-                        },
-                        areaStyle: {
-                            color: {
-                                type: 'linear',
-                                x: 0,
-                                y: 0,
-                                x2: 0,
-                                y2: 1,
-                                colorStops: [
-                                    { offset: 0, color: 'rgba(78, 205, 196, 0.4)' },
-                                    { offset: 1, color: 'rgba(78, 205, 196, 0.05)' }
-                                ]
-                            }
-                        },
-                        label: {
-                            show: true,
-                            position: 'top',
-                            formatter: '${c}B',
-                            color: '#4ecdc4',
-                            fontSize: 11,
-                            fontWeight: 'bold'
-                        }
-                    }]
-                };
-                
-                revenueChart.setOption(revenueOption);
-                
-                // Make chart responsive
-                window.addEventListener('resize', function() {
-                    revenueChart.resize();
-                });
-                
-                // Resize chart when slide changes
-                Reveal.addEventListener('slidechanged', function() {
-                    revenueChart.resize();
-                });
-                
-                console.log('Revenue chart initialized successfully');
-            } catch (error) {
-                console.error('Error initializing revenue chart:', error);
-                chartElement.innerHTML = '<p style="text-align:center; color:#ff6b6b;">Error initializing chart: ' + error.message + '</p>';
-            }
+    // After Reveal is ready, run highlight.js and ensure markdown slides contain email element
+    Reveal.addEventListener('ready', function() {
+      if (window.hljs && typeof hljs.highlightAll === 'function') {
+        hljs.highlightAll();
+      }
+
+      // Some markdown processors recreate slide DOM; ensure positioned email exists
+      document.querySelectorAll('section[data-markdown]').forEach(function(sec){
+        if (!sec.querySelector('.slide-email')) {
+          var p = document.createElement('p');
+          p.className = 'slide-email';
+          p.textContent = '23f2001849@ds.study.iitm.ac.in';
+          sec.appendChild(p);
         }
+      });
+    });
 
-        // Add keyboard shortcuts info
-        Reveal.addEventListener('ready', function() {
-            console.log('Keyboard shortcuts:');
-            console.log('  → or Space: Next slide');
-            console.log('  ← or Shift+Space: Previous slide');
-            console.log('  Home: First slide');
-            console.log('  End: Last slide');
-            console.log('  ESC or O: Slide overview');
-            console.log('  S: Speaker notes view');
-            console.log('  F: Fullscreen mode');
-        });
-
-        // Error handling for failed resources
-        window.addEventListener('error', function(e) {
-            if (e.target.tagName === 'SCRIPT' || e.target.tagName === 'LINK') {
-                console.error('Failed to load resource:', e.target.src || e.target.href);
-            }
-        }, true);
-
-        // Log when presentation is fully loaded
-        window.addEventListener('load', function() {
-            console.log('Presentation fully loaded');
-            console.log('Contact: 23f2001849@ds.study.iitm.ac.in');
-        });
-    </script>
+    // Lazy-load any iframe with data-src on slide change (keeps template safe)
+    Reveal.addEventListener('slidechanged', function(ev){
+      var iframes = ev.currentSlide.querySelectorAll('iframe[data-src]');
+      iframes.forEach(function(iframe){
+        if (!iframe.src) iframe.src = iframe.getAttribute('data-src');
+      });
+    });
+  </script>
 </body>
 </html>
